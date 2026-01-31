@@ -1,0 +1,480 @@
+/* Main Container */
+.minimal-review-container {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header */
+.minimal-header {
+    background: #0a0a0a;
+    border-bottom: 1px solid #222;
+    padding: 1rem 2rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+.logo-icon {
+    width: 18px;
+    height: 18px;
+    color: #888;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -0.5px;
+    font-family: 'Courier New', monospace;
+}
+
+.subtitle {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: #888;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    font-size: 0.875rem;
+    color: #888;
+    padding: 0.25rem 0.5rem;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
+.nav-link {
+    font-size: 0.875rem;
+    color: #888;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background: #111;
+    color: #fff;
+    border-color: #444;
+}
+
+.logout-btn {
+    font-size: 0.875rem;
+    color: #fff;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.logout-btn:hover {
+    background: #333;
+    border-color: #444;
+}
+
+/* Main Content */
+.minimal-main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Editor Section */
+.editor-section,
+.review-section {
+    display: flex;
+    flex-direction: column;
+    background: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 6px;
+    overflow: hidden;
+    min-height: 600px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #111;
+    border-bottom: 1px solid #222;
+}
+
+.section-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.section-info {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Review Button */
+.review-btn {
+    padding: 0.5rem 1rem;
+    background: #222;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.review-btn:hover:not(.loading) {
+    background: #333;
+    border-color: #444;
+}
+
+.review-btn.loading {
+    background: #222;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Editor Wrapper */
+.editor-wrapper {
+    flex: 1;
+    padding: 1rem;
+    overflow: auto;
+    background: #000;
+}
+
+/* Custom Scrollbar */
+.editor-wrapper::-webkit-scrollbar,
+.review-content::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.editor-wrapper::-webkit-scrollbar-track,
+.review-content::-webkit-scrollbar-track {
+    background: #000;
+}
+
+.editor-wrapper::-webkit-scrollbar-thumb,
+.review-content::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+.editor-wrapper::-webkit-scrollbar-thumb:hover,
+.review-content::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Review Content */
+.review-content {
+    flex: 1;
+    padding: 1rem;
+    overflow: auto;
+    background: #000;
+}
+
+/* Loading State */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #666;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #333;
+    border-top: 2px solid #888;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 0.875rem;
+    color: #888;
+    margin: 0;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.empty-text {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+}
+
+.empty-subtext {
+    font-size: 0.75rem;
+    color: #555;
+    margin: 0;
+}
+
+/* Markdown Styling */
+.review-content h1,
+.review-content h2,
+.review-content h3,
+.review-content h4 {
+    color: #fff;
+    margin: 1.25rem 0 0.75rem 0;
+    font-weight: 500;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.review-content h1 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.review-content h2 {
+    font-size: 1rem;
+}
+
+.review-content p {
+    margin-bottom: 1rem;
+    color: #ccc;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.review-content code {
+    background: #111;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    color: #bbb;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.75rem;
+    border: 1px solid #222;
+}
+
+.review-content pre {
+    background: #111;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid #222;
+}
+
+.review-content pre code {
+    background: transparent;
+    padding: 0;
+    border: none;
+    color: #ccc;
+    font-size: 0.75rem;
+}
+
+.review-content ul,
+.review-content ol {
+    margin-left: 1.25rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.review-content li {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.review-content blockquote {
+    border-left: 3px solid #333;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #888;
+    font-style: italic;
+    background: #111;
+    padding: 0.75rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1rem 0;
+}
+
+.review-content strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .minimal-main {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .editor-section,
+    .review-section {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .minimal-header {
+        padding: 1rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .header-right {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .minimal-main {
+        padding: 1rem;
+    }
+    
+    .section-header {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .editor-wrapper,
+    .review-content {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-right {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .nav-link,
+    .logout-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .username {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
+}
+/* Add to existing CSS */
+
+/* Mode-specific styles */
+.minimal-main.split-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.minimal-main.full-view {
+  display: block;
+}
+
+/* Project Button */
+.project-btn {
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  margin-right: 0.5rem;
+}
+
+.project-btn:hover {
+  background: #333;
+  border-color: #444;
+}
+
+/* Section Actions */
+.section-actions {
+  display: flex;
+  align-items: center;
+}
