@@ -56,7 +56,7 @@ function calculateTotal(items) {
         setLoading(true);
         setReview("");
         try {
-            const response = await axios.post('http://localhost:3000/api/files/analyze-code', { 
+            const response = await axios.post('http://localhost:5000/api/files/analyze-code', { 
                 code 
             }, {
                 headers: {
