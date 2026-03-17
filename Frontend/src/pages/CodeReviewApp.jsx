@@ -13,6 +13,9 @@ import ProjectUpload from '../components/ProjectUpload';
 import ProjectResults from '../components/ProjectResults';
 import './CodeReviewApp.css';
 
+// 👇 BAS YAHI ADD KIA HAI - Backend URL
+const API_URL = 'https://ai-code-review-and-bug-detection-system-gora.onrender.com/api';
+
 function CodeReviewApp() {
     const { user, logout } = useAuth();
     const [code, setCode] = useState(`function sum(a, b) {
@@ -56,7 +59,8 @@ function calculateTotal(items) {
         setLoading(true);
         setReview("");
         try {
-            const response = await axios.post('http://localhost:5000/api/files/analyze-code', { 
+            // 👇 YAHAN CHANGE KIA - localhost ki jagah API_URL use kiya
+            const response = await axios.post(`${API_URL}/files/analyze-code`, { 
                 code 
             }, {
                 headers: {
