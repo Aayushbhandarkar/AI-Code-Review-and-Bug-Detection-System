@@ -12,9 +12,12 @@ connectDB();
 
 // CORS configuration
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: [
+    'http://localhost:5173',
+    'https://ai-code-review-and-bug-detection-system.onrender.com'
+  ],
   credentials: true
-}));
+}));;
 
 // Middleware
 app.use(express.json());
