@@ -20,6 +20,7 @@ const storage = multer.diskStorage({
   }
 });
 
+// Create upload middleware
 const upload = multer({ 
   storage: storage,
   limits: { fileSize: 50 * 1024 * 1024 }, // 50MB limit
@@ -32,7 +33,7 @@ const upload = multer({
       cb(new Error('Only ZIP files are allowed'), false);
     }
   }
-}).single('project');
+}).single('project'); // 'project' is the field name from frontend
 
 // Extract ZIP file
 function extractZip(filePath, extractPath) {
@@ -69,7 +70,9 @@ function extractZip(filePath, extractPath) {
     });
     
     // Clean up ZIP file
-    fs.unlinkSync(filePath);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
     
     return files;
   } catch (error) {
@@ -149,7 +152,7 @@ async function analyzeProjectFiles(files) {
     totalLines: totalLines,
     languages: [...new Set(files.map(f => f.language))],
     averageScore: analysisResults.filter(r => r.score).reduce((a, b) => a + b.score, 0) / 
-                 analysisResults.filter(r => r.score).length || 0,
+                 (analysisResults.filter(r => r.score).length || 1),
     criticalIssues: analysisResults.filter(r => r.issues && r.issues.critical > 0).length,
     totalIssues: analysisResults.reduce((sum, r) => sum + (r.issues?.total || 0), 0)
   };
@@ -192,64 +195,85 @@ function calculateScoreFromReview(review) {
   return Math.max(0, Math.min(100, score));
 }
 
-// Upload and analyze project
-exports.uploadProject = async (req, res) => {
-  try {
+// Upload and analyze project - FIXED with multer
+exports.uploadProject = (req, res) => {
+  console.log('📦 Upload project called');
+  
+  // Use multer middleware
+  upload(req, res, async (err) => {
+    // Check for multer errors
+    if (err) {
+      console.error('❌ Multer error:', err);
+      return res.status(400).json({
+        success: false,
+        message: err.message || 'File upload error'
+      });
+    }
+    
+    // Check if file exists
     if (!req.file) {
+      console.log('❌ No file in request');
       return res.status(400).json({
         success: false,
-        message: 'No file uploaded'
+        message: 'No file uploaded. Please select a ZIP file.'
       });
     }
     
-    console.log(`📦 Processing project: ${req.file.originalname}`);
-    
-    // Create unique extraction directory
-    const extractDir = `uploads/extracted/${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    if (!fs.existsSync(extractDir)) {
-      fs.mkdirSync(extractDir, { recursive: true });
-    }
-    
-    // Extract ZIP
-    const files = extractZip(req.file.path, extractDir);
-    
-    if (files.length === 0) {
-      // Clean up
-      fs.rmdirSync(extractDir, { recursive: true });
-      return res.status(400).json({
-        success: false,
-        message: 'No code files found in the ZIP'
-      });
-    }
-    
-    console.log(`📁 Found ${files.length} code files`);
-    
-    // Analyze files
-    const analysis = await analyzeProjectFiles(files);
-    
-    // Clean up extracted files after analysis
-    setTimeout(() => {
-      if (fs.existsSync(extractDir)) {
-        fs.rm(extractDir, { recursive: true }, (err) => {
-          if (err) console.error('Cleanup error:', err);
+    try {
+      console.log(`📦 Processing project: ${req.file.originalname}`);
+      console.log(`📦 File size: ${req.file.size} bytes`);
+      
+      // Create unique extraction directory
+      const extractDir = `uploads/extracted/${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      if (!fs.existsSync(extractDir)) {
+        fs.mkdirSync(extractDir, { recursive: true });
+      }
+      
+      // Extract ZIP
+      const files = extractZip(req.file.path, extractDir);
+      
+      if (files.length === 0) {
+        // Clean up
+        if (fs.existsSync(extractDir)) {
+          fs.rmSync(extractDir, { recursive: true, force: true });
+        }
+        return res.status(400).json({
+          success: false,
+          message: 'No code files found in the ZIP. Supported: .js, .jsx, .ts, .tsx, .py, .java, .cpp, .c, .html, .css, .php, .rb, .go, .rs'
         });
       }
-    }, 5000);
-    
-    res.json({
-      success: true,
-      projectName: req.file.originalname.replace('.zip', ''),
-      fileCount: files.length,
-      analysis: analysis
-    });
-    
-  } catch (error) {
-    console.error('Project upload error:', error);
-    res.status(500).json({
-      success: false,
-      message: error.message || 'Failed to analyze project'
-    });
-  }
+      
+      console.log(`📁 Found ${files.length} code files`);
+      
+      // Analyze files
+      const analysis = await analyzeProjectFiles(files);
+      console.log('✅ Analysis complete');
+      
+      // Clean up extracted files after analysis
+      setTimeout(() => {
+        if (fs.existsSync(extractDir)) {
+          fs.rm(extractDir, { recursive: true, force: true }, (err) => {
+            if (err) console.error('Cleanup error:', err);
+            else console.log('🧹 Cleaned up temp files');
+          });
+        }
+      }, 5000);
+      
+      res.json({
+        success: true,
+        projectName: req.file.originalname.replace('.zip', ''),
+        fileCount: files.length,
+        analysis: analysis
+      });
+      
+    } catch (error) {
+      console.error('❌ Project upload error:', error);
+      res.status(500).json({
+        success: false,
+        message: error.message || 'Failed to analyze project'
+      });
+    }
+  });
 };
 
 // Single file analysis (existing functionality)

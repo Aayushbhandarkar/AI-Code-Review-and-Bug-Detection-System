@@ -10,6 +10,16 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
   const [error, setError] = useState(null);
   const [projectName, setProjectName] = useState('');
 
+  // Auto-detect backend URL
+  const getBackendURL = () => {
+    // Agar localhost pe hai toh local backend use karo
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return 'http://localhost:5000/api';
+    }
+    // Warna deployed backend use karo
+    return 'https://ai-code-review-and-bug-detection-system-gora.onrender.com/api';
+  };
+
   const onDrop = useCallback(async (acceptedFiles) => {
     if (acceptedFiles.length === 0) return;
     
@@ -39,7 +49,9 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
 
       setProgress(30);
 
-      const response = await axios.post('http://localhost:3000/api/files/upload-project', formData, {
+      // Dynamic URL - localhost pe local backend, deploy pe deployed backend
+      const API_URL = getBackendURL();
+      const response = await axios.post(`${API_URL}/files/upload-project`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -48,7 +60,7 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
           const percentCompleted = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total
           );
-          setProgress(30 + (percentCompleted * 0.5)); // 30-80% for upload
+          setProgress(30 + (percentCompleted * 0.5));
         }
       });
 
@@ -77,6 +89,7 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
       }, 2000);
 
     } catch (err) {
+      console.error('Upload error:', err);
       setError(err.response?.data?.message || 'Upload failed. Please try again.');
       setUploading(false);
       setProgress(0);
@@ -95,7 +108,7 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
         <button onClick={handleBack} className="back-btn">
           ← Back to Editor
         </button>
-        <h2 className="upload-title">Project Analysis</h2>
+        <h2 className="project-upload-title">Project Analysis</h2>
         <p className="upload-subtitle">Upload a ZIP file containing your project</p>
       </div>
 
