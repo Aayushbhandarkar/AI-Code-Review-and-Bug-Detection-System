@@ -13,7 +13,7 @@ import ProjectUpload from '../components/ProjectUpload';
 import ProjectResults from '../components/ProjectResults';
 import './CodeReviewApp.css';
 
-// 👇 BAS YAHI ADD KIA HAI - Backend URL
+// Backend URL
 const API_URL = 'https://ai-code-review-and-bug-detection-system-gora.onrender.com/api';
 
 function CodeReviewApp() {
@@ -32,7 +32,7 @@ function calculateTotal(items) {
 }`);
     const [review, setReview] = useState(``);
     const [loading, setLoading] = useState(false);
-    const [mode, setMode] = useState('single'); // 'single' or 'project'
+    const [mode, setMode] = useState('single');
     const [projectAnalysis, setProjectAnalysis] = useState(null);
 
     // Typewriter effect for title
@@ -59,7 +59,6 @@ function calculateTotal(items) {
         setLoading(true);
         setReview("");
         try {
-            // 👇 YAHAN CHANGE KIA - localhost ki jagah API_URL use kiya
             const response = await axios.post(`${API_URL}/files/analyze-code`, { 
                 code 
             }, {
@@ -146,13 +145,18 @@ function calculateTotal(items) {
                                     highlight={(c) => prism.highlight(c, prism.languages.javascript, "javascript")}
                                     padding={16}
                                     style={{
-                                        fontFamily: '"Fira Code", "Fira Mono", monospace',
-                                        fontSize: 13,
+                                        fontFamily: '"Fira Code", "Fira Mono", "Courier New", monospace',
+                                        fontSize: 14,
                                         height: "100%",
                                         width: "100%",
-                                        color: '#ccc',
-                                        lineHeight: '1.5'
+                                        color: '#1c1c1c',
+                                        backgroundColor: '#ffffff',
+                                        fontWeight: 'bold',
+                                        lineHeight: '1.6',
+                                        WebkitFontSmoothing: 'antialiased',
+                                        MozOsxFontSmoothing: 'grayscale'
                                     }}
+                                    textareaClassName="custom-editor-textarea"
                                 />
                             </div>
                         </motion.div>
