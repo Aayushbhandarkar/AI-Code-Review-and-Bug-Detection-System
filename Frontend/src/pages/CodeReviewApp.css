@@ -208,7 +208,7 @@
     opacity: 0.7;
 }
 
-/* Editor Wrapper - BOLD CODE TEXT */
+/* Editor Wrapper */
 .editor-wrapper {
     flex: 1;
     padding: 1.25rem;
@@ -216,29 +216,117 @@
     background: #ffffff;
 }
 
-/* Code Editor Text - BOLD & DARK */
+/* IMPORTANT - FORCE BOLD TEXT IN EDITOR */
 .editor-wrapper textarea,
-.editor-wrapper .code-input,
-.code-editor-textarea {
-    width: 100%;
-    min-height: 500px;
-    background: #ffffff;
-    color: #1c1c1c;
-    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.6;
-    border: none;
-    outline: none;
-    resize: vertical;
-    padding: 0;
-    margin: 0;
+.editor-wrapper pre,
+.editor-wrapper code,
+.npm__react-simple-code-editor__textarea,
+.custom-editor-textarea,
+div[class*="react-simple-code-editor"] textarea {
+    color: #1c1c1c !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    font-family: 'Fira Code', 'Fira Mono', 'Courier New', monospace !important;
+    background: #ffffff !important;
+    caret-color: #c4a77d !important;
 }
 
-.editor-wrapper textarea::placeholder,
-.editor-wrapper .code-input::placeholder {
-    color: #c8c0b5;
-    font-weight: 500;
+/* Editor textarea specific override */
+.npm__react-simple-code-editor__textarea {
+    color: #1c1c1c !important;
+    font-weight: bold !important;
+    -webkit-text-fill-color: #1c1c1c !important;
+}
+
+/* Override prism theme - make syntax colors bold */
+.editor-wrapper .token.comment,
+.editor-wrapper .token.prolog,
+.editor-wrapper .token.doctype,
+.editor-wrapper .token.cdata {
+    color: #a09a92 !important;
+    font-weight: 500 !important;
+}
+
+.editor-wrapper .token.punctuation {
+    color: #8b7355 !important;
+    font-weight: 500 !important;
+}
+
+.editor-wrapper .token.property,
+.editor-wrapper .token.tag,
+.editor-wrapper .token.boolean,
+.editor-wrapper .token.number,
+.editor-wrapper .token.constant,
+.editor-wrapper .token.symbol,
+.editor-wrapper .token.deleted {
+    color: #c4a77d !important;
+    font-weight: 600 !important;
+}
+
+.editor-wrapper .token.selector,
+.editor-wrapper .token.attr-name,
+.editor-wrapper .token.string,
+.editor-wrapper .token.char,
+.editor-wrapper .token.builtin,
+.editor-wrapper .token.inserted {
+    color: #2c8c5a !important;
+    font-weight: 600 !important;
+}
+
+.editor-wrapper .token.operator,
+.editor-wrapper .token.entity,
+.editor-wrapper .token.url,
+.editor-wrapper .language-css .token.string,
+.editor-wrapper .style .token.string {
+    color: #c4a77d !important;
+    font-weight: 600 !important;
+}
+
+.editor-wrapper .token.atrule,
+.editor-wrapper .token.attr-value,
+.editor-wrapper .token.keyword {
+    color: #8b5cf6 !important;
+    font-weight: 700 !important;
+}
+
+.editor-wrapper .token.function,
+.editor-wrapper .token.class-name {
+    color: #3b82f6 !important;
+    font-weight: 600 !important;
+}
+
+.editor-wrapper .token.regex,
+.editor-wrapper .token.important,
+.editor-wrapper .token.variable {
+    color: #ef4444 !important;
+    font-weight: 600 !important;
+}
+
+/* Force white background and bold text on pre/code */
+.editor-wrapper pre {
+    background: #ffffff !important;
+}
+
+.editor-wrapper code {
+    color: #1c1c1c !important;
+    font-weight: bold !important;
+}
+
+/* Override tomorrow theme */
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #1c1c1c !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    background: #ffffff !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    background: transparent !important;
 }
 
 /* Custom Scrollbar */
@@ -264,7 +352,7 @@
     background: #c4a77d;
 }
 
-/* Review Content - BOLD TEXT */
+/* Review Content */
 .review-content {
     flex: 1;
     padding: 1.25rem;
@@ -272,7 +360,6 @@
     background: #ffffff;
 }
 
-/* Review Content Text - Bold */
 .review-content p,
 .review-content li,
 .review-content span {
@@ -335,7 +422,7 @@
     margin: 0;
 }
 
-/* Markdown Styling - BOLD */
+/* Markdown Styling - Bold */
 .review-content h1,
 .review-content h2,
 .review-content h3,
@@ -511,13 +598,11 @@
         padding: 1rem;
     }
     
-    /* Mobile code editor */
     .editor-wrapper textarea,
-    .editor-wrapper .code-input,
-    .code-editor-textarea {
+    .custom-editor-textarea {
         min-height: 300px;
-        font-size: 0.813rem;
-        font-weight: 600;
+        font-size: 13px !important;
+        font-weight: bold !important;
     }
 }
 
