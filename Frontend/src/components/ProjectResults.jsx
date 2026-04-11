@@ -4,7 +4,7 @@ import './ProjectResults.css';
 
 const ProjectResults = ({ analysis, onBack }) => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [viewMode, setViewMode] = useState('summary'); // 'summary' or 'files'
+  const [viewMode, setViewMode] = useState('summary');
 
   if (!analysis) {
     return (
