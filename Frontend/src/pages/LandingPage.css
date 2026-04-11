@@ -1,7 +1,7 @@
 .clean-landing-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-  color: #1a1a2e;
+  background: #faf9f6;
+  color: #2c2c2c;
   display: flex;
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -13,10 +13,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: #faf9f6;
+  border-bottom: 1px solid #e8e6e1;
 }
 
 .clean-logo {
@@ -28,13 +26,13 @@
 .logo-icon {
   width: 28px;
   height: 28px;
-  color: #4f46e5;
+  color: #8b7355;
 }
 
 .logo-text {
   font-size: 1.125rem;
-  font-weight: 600;
-  color: #1a1a2e;
+  font-weight: 500;
+  color: #2c2c2c;
   letter-spacing: -0.3px;
 }
 
@@ -45,7 +43,7 @@
 
 .nav-btn {
   padding: 0.5rem 1.25rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
   border: none;
@@ -56,27 +54,25 @@
 
 .login-btn {
   background: transparent;
-  color: #4a4a6a;
-  border: 1px solid #d0d0e0;
+  color: #6b5b4e;
+  border: 1px solid #ddd8cf;
 }
 
 .login-btn:hover {
-  background: #f0f0f5;
-  color: #1a1a2e;
-  border-color: #b0b0c0;
+  background: #f5f3ef;
+  color: #2c2c2c;
+  border-color: #c8c1b6;
 }
 
 .register-btn {
-  background: #4f46e5;
-  color: #fff;
-  border: none;
-  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+  background: #2c2c2c;
+  color: #faf9f6;
+  border: 1px solid #3a3a3a;
 }
 
 .register-btn:hover {
-  background: #4338ca;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+  background: #3a3a3a;
+  border-color: #4a4a4a;
 }
 
 /* Main Content */
@@ -104,21 +100,18 @@
 
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #1a1a2e 0%, #4f46e5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 500;
+  color: #2c2c2c;
   margin: 0 0 1rem 0;
   line-height: 1.2;
   letter-spacing: -1px;
 }
 
 .hero-subtitle {
-  font-size: 1.125rem;
-  color: #666680;
+  font-size: 1rem;
+  color: #7a6e62;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
   max-width: 500px;
 }
 
@@ -126,11 +119,11 @@
 .code-preview {
   width: 100%;
   max-width: 600px;
-  background: #1e1e2e;
+  background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #2d2d3d;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e8e6e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .code-header {
@@ -138,8 +131,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
-  background: #2a2a3a;
-  border-bottom: 1px solid #3a3a4a;
+  background: #fefefe;
+  border-bottom: 1px solid #e8e6e1;
 }
 
 .header-left {
@@ -157,12 +150,12 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #4a4a5a;
+  background: #ddd8cf;
 }
 
 .file-name {
   font-size: 0.875rem;
-  color: #a0a0b0;
+  color: #8b8b8b;
   font-family: 'Fira Code', monospace;
 }
 
@@ -173,16 +166,16 @@
 
 .lang-tag {
   font-size: 0.75rem;
-  color: #a0a0b0;
+  color: #8b8b8b;
   padding: 0.25rem 0.5rem;
-  background: #3a3a4a;
+  background: #f5f3ef;
   border-radius: 4px;
   font-family: 'Fira Code', monospace;
 }
 
 .code-content {
   padding: 1.5rem;
-  background: #1e1e2e;
+  background: #ffffff;
   min-height: 200px;
 }
 
@@ -193,18 +186,18 @@
 }
 
 .code-text {
-  color: #d4d4dc;
+  color: #4a4a4a;
   font-family: 'Fira Code', monospace;
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.5;
   white-space: pre-wrap;
 }
 
 .cursor {
   display: inline-block;
-  width: 2px;
-  height: 16px;
-  background: #4f46e5;
+  width: 7px;
+  height: 14px;
+  background: #8b7355;
   animation: blink 1s infinite;
   margin-left: 2px;
   vertical-align: middle;
@@ -222,31 +215,29 @@
 }
 
 .primary-btn {
-  padding: 0.875rem 1.75rem;
-  background: #4f46e5;
-  color: #fff;
+  padding: 0.75rem 1.5rem;
+  background: #2c2c2c;
+  color: #faf9f6;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
   font-family: inherit;
-  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
 }
 
 .primary-btn:hover {
-  background: #4338ca;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+  background: #3a3a3a;
+  transform: translateY(-1px);
 }
 
 .secondary-btn {
-  padding: 0.875rem 1.75rem;
+  padding: 0.75rem 1.5rem;
   background: transparent;
-  color: #4a4a6a;
-  border: 1px solid #d0d0e0;
-  border-radius: 10px;
+  color: #6b5b4e;
+  border: 1px solid #ddd8cf;
+  border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -255,16 +246,16 @@
 }
 
 .secondary-btn:hover {
-  background: #f0f0f5;
-  color: #1a1a2e;
-  border-color: #b0b0c0;
+  background: #f5f3ef;
+  color: #2c2c2c;
+  border-color: #c8c1b6;
 }
 
 /* Footer */
 .clean-footer {
   padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.95);
-  border-top: 1px solid #e0e0e0;
+  background: #faf9f6;
+  border-top: 1px solid #e8e6e1;
 }
 
 .footer-content {
@@ -277,12 +268,12 @@
 
 .footer-text {
   font-size: 0.875rem;
-  color: #8888a0;
+  color: #a09a92;
 }
 
 .footer-year {
   font-size: 0.875rem;
-  color: #8888a0;
+  color: #a09a92;
 }
 
 /* Responsive */
@@ -296,11 +287,11 @@
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
   
   .code-preview {
@@ -339,6 +330,6 @@
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
