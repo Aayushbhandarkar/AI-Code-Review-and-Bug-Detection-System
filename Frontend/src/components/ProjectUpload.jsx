@@ -12,11 +12,9 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
 
   // Auto-detect backend URL
   const getBackendURL = () => {
-    // Agar localhost pe hai toh local backend use karo
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       return 'http://localhost:5000/api';
     }
-    // Warna deployed backend use karo
     return 'https://ai-code-review-and-bug-detection-system-gora.onrender.com/api';
   };
 
@@ -35,7 +33,7 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
       'application/x-zip-compressed': ['.zip']
     },
     maxFiles: 1,
-    maxSize: 50 * 1024 * 1024, // 50MB
+    maxSize: 50 * 1024 * 1024,
   });
 
   const uploadProject = async (file) => {
@@ -49,7 +47,6 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
 
       setProgress(30);
 
-      // Dynamic URL - localhost pe local backend, deploy pe deployed backend
       const API_URL = getBackendURL();
       const response = await axios.post(`${API_URL}/files/upload-project`, formData, {
         headers: {
@@ -66,7 +63,6 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
 
       setProgress(80);
 
-      // Simulate analysis progress
       const analysisInterval = setInterval(() => {
         setProgress(prev => {
           if (prev >= 95) {
@@ -77,12 +73,10 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
         });
       }, 100);
 
-      // Wait for analysis completion
       setTimeout(() => {
         clearInterval(analysisInterval);
         setProgress(100);
         
-        // Pass analysis results to parent
         if (onAnalysisComplete) {
           onAnalysisComplete(response.data);
         }
@@ -103,7 +97,12 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
   };
 
   return (
-    <div className="project-upload-container">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="project-upload-container"
+    >
       <div className="upload-header">
         <button onClick={handleBack} className="back-btn">
           ← Back to Editor
@@ -129,7 +128,7 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
                   viewBox="0 0 24 24" 
                   fill="none" 
                   stroke="currentColor" 
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                 >
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="17 8 12 3 7 8" />
@@ -235,7 +234,7 @@ const ProjectUpload = ({ onAnalysisComplete, onBack }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
