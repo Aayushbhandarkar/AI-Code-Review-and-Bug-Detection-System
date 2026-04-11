@@ -1,46 +1,54 @@
+/* Project Upload Container - Award Winning Edition */
 .project-upload-container {
   padding: 2rem;
-  background: #0a0a0a;
-  border-radius: 8px;
-  border: 1px solid #222;
-  max-width: 800px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #ebe5df;
+  max-width: 900px;
   margin: 0 auto;
+  position: relative;
 }
 
 .upload-header {
   margin-bottom: 2rem;
   text-align: center;
+  position: relative;
 }
 
 .back-btn {
   position: absolute;
-  left: 2rem;
+  left: 0;
+  top: 0;
   background: transparent;
-  color: #888;
-  border: 1px solid #333;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  color: #1c1c1c;
+  border: 1px solid #ebe5df;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
   font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  font-family: inherit;
 }
 
 .back-btn:hover {
-  background: #111;
-  color: #fff;
-  border-color: #444;
+  background: #fdfaf7;
+  color: #1c1c1c;
+  border-color: #c4a77d;
 }
 
-.upload-title {
+.project-upload-title {
   font-size: 1.5rem;
-  font-weight: 500;
-  color: #fff;
+  font-weight: 800;
+  color: #1c1c1c;
   margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
 }
 
 .upload-subtitle {
-  color: #666;
+  color: #a09a92;
   font-size: 0.875rem;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -52,23 +60,23 @@
 
 /* Dropzone */
 .dropzone {
-  border: 2px dashed #333;
-  border-radius: 8px;
+  border: 2px dashed #ebe5df;
+  border-radius: 20px;
   padding: 3rem 2rem;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s;
-  background: #050505;
+  background: #fdfaf7;
 }
 
 .dropzone.active {
-  border-color: #555;
-  background: #0a0a0a;
+  border-color: #c4a77d;
+  background: #fefdfc;
 }
 
 .dropzone:hover:not(.active) {
-  border-color: #444;
-  background: #080808;
+  border-color: #ddd3c9;
+  background: #fefdfc;
 }
 
 .dropzone-content {
@@ -79,19 +87,21 @@
 }
 
 .upload-icon {
-  color: #666;
+  color: #c4a77d;
   margin-bottom: 0.5rem;
 }
 
 .dropzone-title {
   font-size: 1.125rem;
-  color: #fff;
+  font-weight: 800;
+  color: #1c1c1c;
   margin: 0;
 }
 
 .dropzone-subtitle {
-  color: #888;
+  color: #a09a92;
   font-size: 0.875rem;
+  font-weight: 500;
   margin: 0 0 1.5rem 0;
 }
 
@@ -99,25 +109,26 @@
   text-align: left;
   max-width: 400px;
   width: 100%;
-  background: #111;
-  padding: 1rem;
-  border-radius: 6px;
-  border: 1px solid #222;
+  background: #fdfaf7;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #ebe5df;
 }
 
 .requirements-title {
   font-size: 0.875rem;
-  color: #999;
+  font-weight: 800;
+  color: #1c1c1c;
   margin: 0 0 0.5rem 0;
-  font-weight: 500;
 }
 
 .requirements-list {
   margin: 0;
   padding-left: 1.25rem;
-  color: #777;
+  color: #a09a92;
   font-size: 0.75rem;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .requirements-list li {
@@ -126,9 +137,9 @@
 
 /* Upload Progress */
 .upload-progress {
-  background: #050505;
-  border: 1px solid #222;
-  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #ebe5df;
+  border-radius: 20px;
   padding: 2rem;
 }
 
@@ -139,29 +150,31 @@
 
 .progress-title {
   font-size: 1.125rem;
-  color: #fff;
+  font-weight: 800;
+  color: #1c1c1c;
   margin: 0 0 0.5rem 0;
 }
 
 .progress-subtitle {
-  color: #888;
+  color: #a09a92;
   font-size: 0.875rem;
+  font-weight: 500;
   margin: 0;
 }
 
 .progress-bar-container {
   width: 100%;
   height: 6px;
-  background: #222;
-  border-radius: 3px;
+  background: #ebe5df;
+  border-radius: 100px;
   overflow: hidden;
   margin-bottom: 1rem;
 }
 
 .progress-bar {
   height: 100%;
-  background: #555;
-  border-radius: 3px;
+  background: #c4a77d;
+  border-radius: 100px;
   transition: width 0.3s ease;
 }
 
@@ -174,13 +187,14 @@
 
 .progress-percent {
   font-size: 1rem;
-  color: #fff;
-  font-weight: 500;
+  font-weight: 800;
+  color: #1c1c1c;
 }
 
 .progress-status {
   font-size: 0.875rem;
-  color: #888;
+  font-weight: 600;
+  color: #a09a92;
 }
 
 .progress-steps {
@@ -195,8 +209,8 @@
   top: 12px;
   left: 10%;
   right: 10%;
-  height: 1px;
-  background: #222;
+  height: 2px;
+  background: #ebe5df;
   z-index: 1;
 }
 
@@ -210,48 +224,53 @@
 }
 
 .step-number {
-  width: 24px;
-  height: 24px;
-  background: #222;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border: 2px solid #ebe5df;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
-  color: #666;
-  font-weight: 500;
+  font-weight: 700;
+  color: #a09a92;
 }
 
 .step.completed .step-number {
-  background: #555;
-  color: #fff;
+  background: #c4a77d;
+  border-color: #c4a77d;
+  color: #ffffff;
 }
 
 .step-text {
   font-size: 0.75rem;
-  color: #666;
+  font-weight: 600;
+  color: #a09a92;
 }
 
 .step.completed .step-text {
-  color: #888;
+  color: #1c1c1c;
 }
 
 /* Error Message */
 .error-message {
-  background: rgba(220, 53, 69, 0.1);
-  border: 1px solid rgba(220, 53, 69, 0.3);
-  border-radius: 6px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
   padding: 1rem;
-  color: #f8d7da;
+  color: #dc2626;
   font-size: 0.875rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .error-icon {
-  color: #f8d7da;
-  font-weight: bold;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 1rem;
 }
 
 /* Upload Info */
@@ -262,25 +281,26 @@
 }
 
 .info-card {
-  background: #111;
-  border: 1px solid #222;
-  border-radius: 6px;
-  padding: 1.5rem;
+  background: #fdfaf7;
+  border: 1px solid #ebe5df;
+  border-radius: 16px;
+  padding: 1.25rem;
 }
 
 .info-title {
   font-size: 0.875rem;
-  color: #fff;
+  font-weight: 800;
+  color: #1c1c1c;
   margin: 0 0 1rem 0;
-  font-weight: 500;
 }
 
 .info-list {
   margin: 0;
   padding-left: 1.25rem;
-  color: #777;
+  color: #a09a92;
   font-size: 0.75rem;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .info-list li {
@@ -294,23 +314,34 @@
 }
 
 .language-tag {
-  background: #222;
-  color: #888;
-  padding: 0.25rem 0.5rem;
-  border-radius: 3px;
+  background: #ffffff;
+  color: #1c1c1c;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
   font-size: 0.7rem;
-  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  border: 1px solid #ebe5df;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .project-upload-container {
-    padding: 1rem;
+    padding: 1.25rem;
+    margin: 1rem;
   }
   
   .back-btn {
     position: static;
     margin-bottom: 1rem;
+  }
+  
+  .upload-header {
+    margin-top: 0.5rem;
+  }
+  
+  .project-upload-title {
+    font-size: 1.25rem;
   }
   
   .upload-info {
@@ -319,5 +350,40 @@
   
   .dropzone {
     padding: 2rem 1rem;
+  }
+  
+  .dropzone-title {
+    font-size: 1rem;
+  }
+  
+  .progress-steps::before {
+    left: 5%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-upload-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .step-text {
+    font-size: 0.65rem;
+  }
+  
+  .step-number {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65rem;
+  }
+  
+  .language-tags {
+    gap: 0.375rem;
+  }
+  
+  .language-tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
   }
 }
