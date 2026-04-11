@@ -1,7 +1,7 @@
 .clean-landing-page {
   min-height: 100vh;
-  background: #000;
-  color: #fff;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  color: #1a1a2e;
   display: flex;
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -13,8 +13,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: rgba(0, 0, 0, 0.9);
-  border-bottom: 1px solid #222;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .clean-logo {
@@ -26,14 +28,14 @@
 .logo-icon {
   width: 28px;
   height: 28px;
-  color: #888;
+  color: #4f46e5;
 }
 
 .logo-text {
   font-size: 1.125rem;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: -0.5px;
+  font-weight: 600;
+  color: #1a1a2e;
+  letter-spacing: -0.3px;
 }
 
 .clean-nav-buttons {
@@ -43,7 +45,7 @@
 
 .nav-btn {
   padding: 0.5rem 1.25rem;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
   border: none;
@@ -54,25 +56,27 @@
 
 .login-btn {
   background: transparent;
-  color: #999;
-  border: 1px solid #333;
+  color: #4a4a6a;
+  border: 1px solid #d0d0e0;
 }
 
 .login-btn:hover {
-  background: #111;
-  color: #fff;
-  border-color: #444;
+  background: #f0f0f5;
+  color: #1a1a2e;
+  border-color: #b0b0c0;
 }
 
 .register-btn {
-  background: #222;
+  background: #4f46e5;
   color: #fff;
-  border: 1px solid #333;
+  border: none;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
 }
 
 .register-btn:hover {
-  background: #333;
-  border-color: #444;
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
 }
 
 /* Main Content */
@@ -99,19 +103,22 @@
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 500;
-  color: #fff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1a1a2e 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 1rem 0;
   line-height: 1.2;
   letter-spacing: -1px;
 }
 
 .hero-subtitle {
-  font-size: 1rem;
-  color: #888;
+  font-size: 1.125rem;
+  color: #666680;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 500px;
 }
 
@@ -119,10 +126,11 @@
 .code-preview {
   width: 100%;
   max-width: 600px;
-  background: #0a0a0a;
-  border-radius: 8px;
+  background: #1e1e2e;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #222;
+  border: 1px solid #2d2d3d;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
 }
 
 .code-header {
@@ -130,8 +138,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
-  background: #111;
-  border-bottom: 1px solid #222;
+  background: #2a2a3a;
+  border-bottom: 1px solid #3a3a4a;
 }
 
 .header-left {
@@ -149,12 +157,12 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #333;
+  background: #4a4a5a;
 }
 
 .file-name {
   font-size: 0.875rem;
-  color: #999;
+  color: #a0a0b0;
   font-family: 'Fira Code', monospace;
 }
 
@@ -165,16 +173,16 @@
 
 .lang-tag {
   font-size: 0.75rem;
-  color: #666;
+  color: #a0a0b0;
   padding: 0.25rem 0.5rem;
-  background: #222;
-  border-radius: 3px;
+  background: #3a3a4a;
+  border-radius: 4px;
   font-family: 'Fira Code', monospace;
 }
 
 .code-content {
   padding: 1.5rem;
-  background: #000;
+  background: #1e1e2e;
   min-height: 200px;
 }
 
@@ -185,18 +193,18 @@
 }
 
 .code-text {
-  color: #ccc;
+  color: #d4d4dc;
   font-family: 'Fira Code', monospace;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.6;
   white-space: pre-wrap;
 }
 
 .cursor {
   display: inline-block;
-  width: 7px;
-  height: 14px;
-  background: #ccc;
+  width: 2px;
+  height: 16px;
+  background: #4f46e5;
   animation: blink 1s infinite;
   margin-left: 2px;
   vertical-align: middle;
@@ -214,29 +222,31 @@
 }
 
 .primary-btn {
-  padding: 0.75rem 1.5rem;
-  background: #222;
+  padding: 0.875rem 1.75rem;
+  background: #4f46e5;
   color: #fff;
-  border: 1px solid #333;
-  border-radius: 4px;
+  border: none;
+  border-radius: 10px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
   font-family: inherit;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
 }
 
 .primary-btn:hover {
-  background: #333;
-  border-color: #444;
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
 }
 
 .secondary-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   background: transparent;
-  color: #999;
-  border: 1px solid #333;
-  border-radius: 4px;
+  color: #4a4a6a;
+  border: 1px solid #d0d0e0;
+  border-radius: 10px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -245,16 +255,16 @@
 }
 
 .secondary-btn:hover {
-  background: #111;
-  color: #fff;
-  border-color: #444;
+  background: #f0f0f5;
+  color: #1a1a2e;
+  border-color: #b0b0c0;
 }
 
 /* Footer */
 .clean-footer {
   padding: 1.5rem 2rem;
-  background: rgba(0, 0, 0, 0.9);
-  border-top: 1px solid #222;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid #e0e0e0;
 }
 
 .footer-content {
@@ -267,12 +277,12 @@
 
 .footer-text {
   font-size: 0.875rem;
-  color: #666;
+  color: #8888a0;
 }
 
 .footer-year {
   font-size: 0.875rem;
-  color: #666;
+  color: #8888a0;
 }
 
 /* Responsive */
@@ -286,11 +296,11 @@
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
   .hero-subtitle {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
   
   .code-preview {
@@ -329,6 +339,6 @@
   }
   
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 }
