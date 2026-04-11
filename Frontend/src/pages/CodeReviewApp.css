@@ -208,12 +208,37 @@
     opacity: 0.7;
 }
 
-/* Editor Wrapper */
+/* Editor Wrapper - BOLD CODE TEXT */
 .editor-wrapper {
     flex: 1;
     padding: 1.25rem;
     overflow: auto;
     background: #ffffff;
+}
+
+/* Code Editor Text - BOLD & DARK */
+.editor-wrapper textarea,
+.editor-wrapper .code-input,
+.code-editor-textarea {
+    width: 100%;
+    min-height: 500px;
+    background: #ffffff;
+    color: #1c1c1c;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.6;
+    border: none;
+    outline: none;
+    resize: vertical;
+    padding: 0;
+    margin: 0;
+}
+
+.editor-wrapper textarea::placeholder,
+.editor-wrapper .code-input::placeholder {
+    color: #c8c0b5;
+    font-weight: 500;
 }
 
 /* Custom Scrollbar */
@@ -239,12 +264,19 @@
     background: #c4a77d;
 }
 
-/* Review Content */
+/* Review Content - BOLD TEXT */
 .review-content {
     flex: 1;
     padding: 1.25rem;
     overflow: auto;
     background: #ffffff;
+}
+
+/* Review Content Text - Bold */
+.review-content p,
+.review-content li,
+.review-content span {
+    font-weight: 500;
 }
 
 /* Loading State */
@@ -303,7 +335,7 @@
     margin: 0;
 }
 
-/* Markdown Styling */
+/* Markdown Styling - BOLD */
 .review-content h1,
 .review-content h2,
 .review-content h3,
@@ -332,7 +364,7 @@
 
 .review-content p {
     margin-bottom: 1rem;
-    color: #4a4a4a;
+    color: #2c2c2c;
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.6;
@@ -345,7 +377,7 @@
     color: #1c1c1c;
     font-family: 'SF Mono', 'Fira Code', monospace;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     border: 1px solid #ebe5df;
 }
 
@@ -362,16 +394,16 @@
     background: transparent;
     padding: 0;
     border: none;
-    color: #2c2c2c;
+    color: #1c1c1c;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .review-content ul,
 .review-content ol {
     margin-left: 1.25rem;
     margin-bottom: 1rem;
-    color: #4a4a4a;
+    color: #2c2c2c;
 }
 
 .review-content li {
@@ -477,6 +509,15 @@
     .editor-wrapper,
     .review-content {
         padding: 1rem;
+    }
+    
+    /* Mobile code editor */
+    .editor-wrapper textarea,
+    .editor-wrapper .code-input,
+    .code-editor-textarea {
+        min-height: 300px;
+        font-size: 0.813rem;
+        font-weight: 600;
     }
 }
 
