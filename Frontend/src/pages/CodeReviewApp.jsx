@@ -8,7 +8,7 @@ import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import axios from 'axios';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProjectUpload from '../components/ProjectUpload';
 import ProjectResults from '../components/ProjectResults';
 import './CodeReviewApp.css';
@@ -34,6 +34,7 @@ function calculateTotal(items) {
     const [loading, setLoading] = useState(false);
     const [mode, setMode] = useState('single');
     const [projectAnalysis, setProjectAnalysis] = useState(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // Typewriter effect for title
     const titleText = "CodeReviewer";
@@ -89,6 +90,12 @@ function calculateTotal(items) {
     const handleSwitchToProject = () => {
         setMode('project');
         setReview('');
+        setMobileMenuOpen(false);
+    };
+
+    const handleLogout = () => {
+        logout();
+        setMobileMenuOpen(false);
     };
 
     const renderContent = () => {
@@ -220,7 +227,8 @@ function calculateTotal(items) {
                         </div>
                     </div>
                     
-                    <div className="header-right">
+                    {/* Desktop Navigation */}
+                    <div className="header-right desktop-nav">
                         <div className="user-info">
                             <span className="username">{user?.username}</span>
                         </div>
@@ -231,7 +239,49 @@ function calculateTotal(items) {
                             Logout
                         </button>
                     </div>
+
+                    {/* Mobile Hamburger Button */}
+                    <button 
+                        className={`mobile-menu-btn ${mobileMenuOpen ? 'active' : ''}`}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    >
+                        <span className="hamburger-line"></span>
+                        <span className="hamburger-line"></span>
+                        <span className="hamburger-line"></span>
+                    </button>
                 </div>
+
+                {/* Mobile Navigation Menu */}
+                <AnimatePresence>
+                    {mobileMenuOpen && (
+                        <motion.div 
+                            className="mobile-nav"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <div className="mobile-nav-content">
+                                <div className="mobile-user-info">
+                                    <span className="mobile-username">{user?.username}</span>
+                                </div>
+                                <Link 
+                                    to="/" 
+                                    className="mobile-nav-link"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Home
+                                </Link>
+                                <button 
+                                    onClick={handleLogout} 
+                                    className="mobile-logout-btn"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </header>
 
             {/* Main Content */}
