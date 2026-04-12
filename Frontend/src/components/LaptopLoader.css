@@ -1,10 +1,11 @@
+/* Pure Minimal Loader */
 .laptop-loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: #fdfaf7;
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -14,14 +15,15 @@
 }
 
 .laptop-container {
-  perspective: 2000px;
+  perspective: 1000px;
   margin-bottom: 3rem;
 }
 
+/* 3D Laptop */
 .laptop {
   transform-origin: center bottom;
-  transform: translateY(100vh) rotateX(90deg);
-  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateY(100vh) rotateX(80deg);
+  transition: transform 1s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
 .laptop.open {
@@ -29,39 +31,38 @@
 }
 
 .laptop.close {
-  transform: translateY(-100vh) rotateX(-90deg);
+  transform: translateY(-100vh) rotateX(-80deg);
 }
 
-/* Laptop Screen */
+/* Laptop Screen - Ultra Minimal */
 .laptop-screen {
   width: 600px;
-  height: 340px;
-  background: #111;
-  border-radius: 15px 15px 0 0;
-  border: 2px solid #333;
+  height: 350px;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid #ebe5df;
   border-bottom: none;
   position: relative;
-  transform-style: preserve-3d;
-  box-shadow: 0 0 50px rgba(0, 100, 255, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 }
 
 .screen-frame {
   width: 100%;
   height: 100%;
-  background: #000;
-  border-radius: 10px 10px 0 0;
+  background: #ffffff;
+  border-radius: 14px 14px 0 0;
   overflow: hidden;
-  position: relative;
+  padding: 20px;
 }
 
 .screen-camera {
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background: #333;
+  width: 6px;
+  height: 6px;
+  background: #ddd3c9;
   border-radius: 50%;
   z-index: 10;
 }
@@ -69,182 +70,152 @@
 .screen-content {
   width: 100%;
   height: 100%;
-  padding: 20px;
   background: #0a0a0a;
-  overflow: hidden;
-  position: relative;
+  border-radius: 10px;
+  padding: 24px;
+  overflow: auto;
 }
 
-.terminal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #333;
-}
-
-.terminal-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.dot.red { background: #ff5f57; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #28c940; }
-
-.terminal-title {
-  color: #888;
-  font-size: 12px;
-  font-family: 'Courier New', monospace;
-}
-
+/* Code Display - Simple Text */
 .code-display {
-  color: #0af;
-  font-family: 'Fira Code', 'Courier New', monospace;
+  color: #c4a77d;
+  font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 14px;
-  line-height: 1.4;
+  font-weight: 500;
+  line-height: 1.8;
   margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* Laptop Body */
+/* Laptop Body - Minimal */
 .laptop-body {
-  width: 650px;
-  height: 25px;
-  background: linear-gradient(135deg, #222 0%, #111 100%);
-  border-radius: 0 0 15px 15px;
+  width: 640px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
+  border: 1px solid #ebe5df;
+  border-top: none;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.laptop-body::before {
-  content: '';
+.keyboard-simple {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(0, 100, 255, 0.5), 
-    transparent
-  );
+  top: -35px;
+  left: 40px;
+  right: 40px;
+  height: 28px;
+  background: #fdfaf7;
+  border-radius: 6px;
+  border: 1px solid #ebe5df;
 }
 
-.keyboard {
+.touchpad-simple {
   position: absolute;
-  top: -40px;
-  left: 25px;
-  right: 25px;
-  height: 35px;
-  background: #111;
-  border-radius: 5px;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.key-row {
-  display: flex;
-  gap: 3px;
-  justify-content: center;
-}
-
-.key {
-  width: 30px;
-  height: 8px;
-  background: #222;
-  border-radius: 2px;
-  transition: all 0.2s;
-}
-
-.key:nth-child(2n) {
-  background: #1a1a1a;
-}
-
-.space-bar {
-  width: 150px;
-  height: 6px;
-  background: #222;
-  border-radius: 2px;
-  margin: 0 auto;
-  margin-top: 3px;
-}
-
-.touchpad {
-  position: absolute;
-  top: -15px;
+  top: -12px;
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
-  height: 50px;
-  background: #111;
-  border-radius: 3px;
-  border: 1px solid #333;
+  height: 35px;
+  background: #fdfaf7;
+  border-radius: 4px;
+  border: 1px solid #ebe5df;
 }
 
-.brand {
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #666;
-  font-size: 10px;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 2px;
-}
-
-/* Loading Text */
-.loader-text {
-  color: #0af;
-  font-family: 'Courier New', monospace;
-  font-size: 18px;
+/* Minimal Loading Dots */
+.loader-minimal {
+  display: flex;
+  gap: 12px;
   margin-top: 2rem;
-  text-align: center;
 }
 
-.text {
-  display: inline-block;
+.dot-floating {
+  width: 8px;
+  height: 8px;
+  background: #c4a77d;
+  border-radius: 50%;
+  animation: float 1.4s ease-in-out infinite;
 }
 
-.dots {
-  display: inline-block;
-  width: 30px;
-  text-align: left;
-  animation: dots 1.5s infinite;
+.dot-floating:nth-child(1) {
+  animation-delay: 0s;
 }
 
-@keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60%, 100% { content: '...'; }
+.dot-floating:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot-floating:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .laptop-screen {
-    width: 90vw;
-    height: calc(90vw * 0.56);
+    width: 85vw;
+    height: calc(85vw * 0.58);
   }
   
   .laptop-body {
-    width: calc(90vw + 50px);
+    width: calc(85vw + 40px);
   }
   
-  .key {
-    width: 20px;
+  .code-display {
+    font-size: 11px;
   }
   
-  .space-bar {
-    width: 100px;
+  .keyboard-simple {
+    left: 20px;
+    right: 20px;
   }
+}
+
+@media (max-width: 480px) {
+  .laptop-screen {
+    width: 90vw;
+    height: calc(90vw * 0.6);
+  }
+  
+  .laptop-body {
+    width: calc(90vw + 30px);
+  }
+  
+  .code-display {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  
+  .screen-content {
+    padding: 16px;
+  }
+  
+  .dot-floating {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Clean Scrollbar */
+.screen-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.screen-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.screen-content::-webkit-scrollbar-thumb {
+  background: #c4a77d;
+  border-radius: 100px;
 }
